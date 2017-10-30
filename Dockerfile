@@ -2,7 +2,7 @@ FROM phusion/baseimage:0.9.22
 
 LABEL maintainer "Chris Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 
-COPY docker/* /opt/docker
+COPY Dockerfile install-*.sh /opt/docker/
 RUN chmod a+x /opt/docker/*.sh
 
 # Silence some warnings about Readline. Checkout more over here:
