@@ -16,7 +16,6 @@ ENV DEBIAN_FRONTEND noninteractive
 # ca-certificates and wget needed for gosu
 # bzip2, liblz4-toolk, and pigz are useful for packaging and archival
 # google-cloud-sdk needed when using this in GCE, xenial is what phusion/baseimage is based on
-# removing /var/lib/apt/lists/* frees some space
 # 
 RUN echo "deb http://packages.cloud.google.com/apt cloud-sdk-xenial main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
     && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
@@ -24,8 +23,11 @@ RUN echo "deb http://packages.cloud.google.com/apt cloud-sdk-xenial main" | tee 
     && apt-get install -y -qq --no-install-recommends ca-certificates wget rsync curl bzip2 python less nano vim locales google-cloud-sdk awscli liblz4-tool pigz \
     && apt-get upgrade -y \
     && apt-get clean \
-    #&& rm -rf /var/lib/apt/lists/* \
     && locale-gen en_US.UTF-8
+
+# skip this...
+# removing /var/lib/apt/lists/* frees some space
+#RUN rm -rf /var/lib/apt/lists/*
 
 # Set default locale to en_US.UTF-8
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
