@@ -20,7 +20,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN echo "deb http://packages.cloud.google.com/apt cloud-sdk-xenial main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
     && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
     && apt-get update \
-    && apt-get install -y -qq --no-install-recommends ca-certificates wget rsync curl bzip2 python less nano vim locales google-cloud-sdk awscli liblz4-tool pigz \
+    && apt-get install -y -qq --no-install-recommends ca-certificates wget rsync curl bzip2 python less nano vim git locales google-cloud-sdk awscli liblz4-tool pigz \
     && apt-get upgrade -y \
     && apt-get clean \
     && locale-gen en_US.UTF-8
