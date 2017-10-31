@@ -6,8 +6,8 @@ MINICONDA_URL=https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 # download and run miniconda installer script
 curl -sSL $MINICONDA_URL > "/tmp/Miniconda3-latest-x86_64.sh"
 chmod a+x "/tmp/Miniconda3-latest-x86_64.sh"
-"/tmp/Miniconda3-latest-x86_64.sh" -b -f -p "$MINICONDA_PATH"
-rm "/tmp/Miniconda3-latest-x86_64.sh"
+/tmp/Miniconda3-latest-x86_64.sh -b -f -p "$MINICONDA_PATH"
+rm /tmp/Miniconda3-latest-x86_64.sh
 
 PATH="$MINICONDA_PATH/bin:$PATH"
 hash -r
@@ -19,3 +19,4 @@ conda config --add channels bioconda
 conda config --add channels broad-viral
 conda install -q -y -c defaults conda
 conda config --set auto_update_conda false
+conda clean -y --all
