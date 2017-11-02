@@ -2,8 +2,10 @@
 
 set -e -o pipefail
 
-# Ubuntu Xenial is what phusion/baseimage is based on
-DEBIAN_PLATFORM=xenial
+# phusion/baseimage is based on xenial, but in case something changes,
+# auto-detect here:
+DEBIAN_PLATFORM="$(lsb_release -c -s)"
+echo "Debian platform: $DEBIAN_PLATFORM"
 
 # Silence some warnings about Readline. Checkout more over her$
 # https://github.com/phusion/baseimage-docker/issues/58
