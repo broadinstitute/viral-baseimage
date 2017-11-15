@@ -17,7 +17,7 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 apt-get update
 apt-get install -y -qq --no-install-recommends \
 	ca-certificates wget rsync curl \
-	python-crcmod less nano vim git locales \
+	python-crcmod less nano vim git locales make \
 	google-cloud-sdk awscli \
 	liblz4-tool pigz bzip2
 apt-get upgrade -y
