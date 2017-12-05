@@ -22,6 +22,7 @@ echo "deb http://packages.cloud.google.com/apt cloud-sdk-$DEBIAN_PLATFORM main" 
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
 # Install gcloud and aws
+apt-get update
 apt-get install -y -qq --no-install-recommends \
 	google-cloud-sdk awscli
 
