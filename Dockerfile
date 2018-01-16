@@ -1,5 +1,5 @@
 #FROM phusion/baseimage:0.9.22
-FROM ubuntu:zesty-20171114
+FROM ubuntu:artful-20180112
 
 LABEL maintainer "Chris Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 
