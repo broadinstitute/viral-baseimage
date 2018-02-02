@@ -11,7 +11,7 @@ apt-get update
 apt-get install -y -qq --no-install-recommends \
 	lsb-release ca-certificates wget rsync curl \
 	python-crcmod less nano vim git locales make \
-	dirmngr \
+	dirmngr parallel \
 	liblz4-tool pigz bzip2 lbzip2
 
 # Auto-detect platform
