@@ -20,8 +20,9 @@ RUN /opt/docker/install-dnanexus-cli.sh
 RUN /opt/docker/install-gosu.sh
 
 # install miniconda3 with our default channels and no other packages
-ENV MINICONDA_PATH="/opt/miniconda" \
-    PATH="$MINICONDA_PATH/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ENV MINICONDA_PATH="/opt/miniconda"
 RUN /opt/docker/install-miniconda.sh
 
+# set up entrypoint
+ENV PATH="$MINICONDA_PATH/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 CMD ["/bin/bash"]
