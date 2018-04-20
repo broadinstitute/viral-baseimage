@@ -1,4 +1,4 @@
-FROM ubuntu:artful-20180227
+FROM ubuntu:artful-20180412
 
 LABEL maintainer "Chris Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 
@@ -22,3 +22,7 @@ RUN /opt/docker/install-gosu.sh
 # install miniconda3 with our default channels and no other packages
 ENV MINICONDA_PATH="/opt/miniconda"
 RUN /opt/docker/install-miniconda.sh
+
+# set up entrypoint
+ENV PATH="$MINICONDA_PATH/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+CMD ["/bin/bash"]

@@ -12,7 +12,7 @@ apt-get install -y -qq --no-install-recommends \
 	lsb-release ca-certificates wget rsync curl \
 	python-crcmod less nano vim git locales make \
 	dirmngr \
-	liblz4-tool pigz bzip2 lbzip2
+	liblz4-tool pigz bzip2 lbzip2 zstd
 
 # Auto-detect platform
 DEBIAN_PLATFORM="$(lsb_release -c -s)"
