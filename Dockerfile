@@ -1,4 +1,4 @@
-FROM ubuntu:artful-20180412
+FROM ubuntu:bionic-20180426
 
 LABEL maintainer "Chris Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 
