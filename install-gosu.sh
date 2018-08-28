@@ -11,6 +11,7 @@ wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/downloa
 export GNUPGHOME="$(mktemp -d)"
 GPG_KEY=B42F6819007F00F88E364FD4036A9C25BF357DD4
 (    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEY" \
+  || gpg --keyserver pool.sks-keyservers.net --recv-keys "$GPG_KEY" \
   || gpg --keyserver pgp.mit.edu --recv-keys "$GPG_KEY" \
   || gpg --keyserver keyserver.pgp.com --recv-keys "$GPG_KEY" )
 
