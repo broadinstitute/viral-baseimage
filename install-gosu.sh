@@ -9,7 +9,12 @@ wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/downloa
 
 # verify the signature
 export GNUPGHOME="$(mktemp -d)"
-gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
+GPG_KEY=B42F6819007F00F88E364FD4036A9C25BF357DD4
+(    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEY" \
+  || gpg --keyserver pool.sks-keyservers.net --recv-keys "$GPG_KEY" \
+  || gpg --keyserver pgp.mit.edu --recv-keys "$GPG_KEY" \
+  || gpg --keyserver keyserver.pgp.com --recv-keys "$GPG_KEY" )
+
 gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu
 rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc
 chmod +x /usr/local/bin/gosu
