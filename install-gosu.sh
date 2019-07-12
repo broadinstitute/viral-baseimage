@@ -1,7 +1,7 @@
 #!/bin/bash
-set -ex -o pipefail
+set -exu -o pipefail
 
-GOSU_VERSION=1.10
+GOSU_VERSION=1.11
 
 dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')"
 wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch"
