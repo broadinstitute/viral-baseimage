@@ -17,6 +17,6 @@ conda config --add channels defaults
 conda config --add channels conda-forge
 conda config --add channels bioconda
 conda config --add channels broad-viral
-conda install -q -y -c defaults conda
+conda install -q -y -c defaults conda==4.6.14
 conda config --set auto_update_conda false
 conda clean -y --all
