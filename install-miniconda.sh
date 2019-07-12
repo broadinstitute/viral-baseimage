@@ -1,13 +1,14 @@
 #!/bin/bash
 set -e -o pipefail
 
-MINICONDA_URL=https://repo.continuum.io/miniconda/Miniconda3-4.6.14-Linux-x86_64.sh
+MINICONDA_VERSION="4.6.14"
+MINICONDA_URL="https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh"
 
 # download and run miniconda installer script
-curl -sSL $MINICONDA_URL > "/tmp/Miniconda3-latest-x86_64.sh"
-chmod a+x "/tmp/Miniconda3-latest-x86_64.sh"
-/tmp/Miniconda3-latest-x86_64.sh -b -f -p "$MINICONDA_PATH"
-rm /tmp/Miniconda3-latest-x86_64.sh
+curl -sSL $MINICONDA_URL > "/tmp/Miniconda3-${MINICONDA_VERSION}-x86_64.sh"
+chmod a+x "/tmp/Miniconda3-${MINICONDA_VERSION}-x86_64.sh"
+/tmp/Miniconda3-${MINICONDA_VERSION}-x86_64.sh -b -f -p "$MINICONDA_PATH"
+rm /tmp/Miniconda3-${MINICONDA_VERSION}-x86_64.sh
 
 PATH="$MINICONDA_PATH/bin:$PATH"
 hash -r
