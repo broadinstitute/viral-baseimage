@@ -13,12 +13,10 @@ apt-get install -y -qq --no-install-recommends \
 	lsb-release ca-certificates wget rsync curl \
 	python-crcmod less nano vim git locales make \
 	dirmngr gnupg \
-	liblz4-tool pigz bzip2 lbzip2 zstd
+	liblz4-tool pigz bzip2 lbzip2 zip unzip zstd
 
 # Auto-detect platform
 DEBIAN_PLATFORM="$(lsb_release -c -s)"
-# because google-sdk doesn't exist for bionic yet
-DEBIAN_PLATFORM="artful"
 echo "Debian platform: $DEBIAN_PLATFORM"
 
 # Add source for gcloud sdk
