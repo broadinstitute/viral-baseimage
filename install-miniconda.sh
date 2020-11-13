@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e -o pipefail
 
-MINICONDA_VERSION="4.6.14"
+MINICONDA_VERSION="4.7.12.1"
 MINICONDA_URL="https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh"
 
 # download and run miniconda installer script
