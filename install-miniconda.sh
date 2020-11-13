@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e -o pipefail
 
-MINICONDA_VERSION="4.6.14"
+MINICONDA_VERSION="4.7.12.1"
 MINICONDA_URL="https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh"
 
 # download and run miniconda installer script
@@ -19,4 +19,5 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --add channels broad-viral
 conda config --set auto_update_conda false
+conda install -y mamba -c conda-forge # compatible CLI with faster solver: https://github.com/mamba-org/mamba
 conda clean -y --all
