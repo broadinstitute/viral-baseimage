@@ -19,4 +19,5 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --add channels broad-viral
 conda config --set auto_update_conda false
+conda install -y mamba -c conda-forge # compatible CLI with faster solver: https://github.com/mamba-org/mamba
 conda clean -y --all
