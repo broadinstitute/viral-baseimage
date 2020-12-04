@@ -2,7 +2,7 @@
 
 set -e -o pipefail -u
 
-DX_TOOLKIT_VERSION=0.288.0
+DX_TOOLKIT_VERSION=0.291.1
 DX_UPLOAD_AGENT_VERSION=1.5.31
 
 # get the dx-toolkit
