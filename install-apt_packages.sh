@@ -12,7 +12,7 @@ apt-get update
 apt-get install -y -qq --no-install-recommends \
 	lsb-release ca-certificates wget rsync curl \
 	python-crcmod less nano vim git locales make \
-	dirmngr gnupg \
+	dirmngr parallel gnupg \
 	liblz4-tool pigz bzip2 lbzip2 zip unzip zstd \
 	ttf-dejavu
 
