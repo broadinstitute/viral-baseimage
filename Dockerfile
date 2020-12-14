@@ -1,4 +1,4 @@
-FROM ubuntu:bionic-20200921
+FROM public.ecr.aws/lts/ubuntu:18.04_stable
 
 LABEL maintainer "Chris Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 
