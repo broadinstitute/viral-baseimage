@@ -11,7 +11,7 @@ echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 apt-get update
 apt-get install -y -qq --no-install-recommends \
 	lsb-release ca-certificates wget rsync curl \
-	python-crcmod less nano vim git locales make \
+	python3-crcmod less nano vim git locales make \
 	dirmngr parallel gnupg file \
 	liblz4-tool pigz bzip2 lbzip2 zip unzip zstd \
 	ttf-dejavu
