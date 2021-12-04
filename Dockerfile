@@ -15,6 +15,7 @@ ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
 # install miniwdl
 RUN pip3 install --system miniwdl==1.4.1
+ENV MINIWDL__SCHEDULER__CONTAINER_BACKEND=udocker
 
 # install udocker
 RUN /opt/docker/install-udocker.sh
