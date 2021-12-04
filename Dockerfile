@@ -1,4 +1,4 @@
-FROM ubuntu:bionic-20200921
+FROM ubuntu:focal-20211006
 
 LABEL maintainer "Chris Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 
@@ -12,6 +12,13 @@ RUN /opt/docker/install-apt_packages.sh
 
 # Set default locale to en_US.UTF-8
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
+
+# install miniwdl
+RUN pip3 install --system miniwdl==1.4.1
+ENV MINIWDL__SCHEDULER__CONTAINER_BACKEND=udocker
+
+# install udocker
+RUN /opt/docker/install-udocker.sh
 
 # install DNAnexus SDK and UA
 RUN /opt/docker/install-dnanexus-cli.sh

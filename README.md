@@ -11,4 +11,4 @@ work on the cloud:
 Google Cloud, Amazon Web Services, and DNAnexus
  - a few compression utilities
  - Miniconda
- - gosu
+ - udocker

@@ -10,15 +10,17 @@ echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 # Add some basics
 apt-get update
 apt-get install -y -qq --no-install-recommends \
-	lsb-release ca-certificates wget rsync curl \
-	python-crcmod less nano vim git locales make \
+	lsb-release ca-certificates wget rsync curl python-is-python3 python3-pip \
+	python3-crcmod less nano vim git locales make \
 	dirmngr parallel gnupg file \
 	liblz4-tool pigz bzip2 lbzip2 zip unzip zstd \
 	ttf-dejavu
 
-# Auto-detect platform
-DEBIAN_PLATFORM="$(lsb_release -c -s)"
-echo "Debian platform: $DEBIAN_PLATFORM"
+## Auto-detect platform
+#DEBIAN_PLATFORM="$(lsb_release -c -s)"
+#echo "Debian platform: $DEBIAN_PLATFORM"
+DEBIAN_PLATFORM=bionic
+echo "faking bionic release for google cloud sdk"
 
 # Add source for gcloud sdk
 echo "deb http://packages.cloud.google.com/apt cloud-sdk-$DEBIAN_PLATFORM main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
