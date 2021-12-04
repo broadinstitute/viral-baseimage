@@ -13,6 +13,9 @@ RUN /opt/docker/install-apt_packages.sh
 # Set default locale to en_US.UTF-8
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
+# install miniwdl
+RUN pip3 install --system miniwdl==1.4.1
+
 # install udocker
 RUN /opt/docker/install-udocker.sh
 
