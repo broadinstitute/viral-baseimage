@@ -13,12 +13,12 @@ task recursion {
         import json
         with open('_LAST/outputs.json', 'rt') as inf:
           outs = json.load(inf)
-        outs['inception.out'][~{n}] = "success"
+        outs['inception.out']["~{n}"] = "success"
         with open("OUT.json", "wt") as outf:
           json.dump(outf, outs['inception.out'])
   CODE
     else
-      echo "{0: 'did_not_execute'}" > OUT.json
+      echo '{"0": "did_not_execute"}' > OUT.json
     fi
   >>>
   runtime {
