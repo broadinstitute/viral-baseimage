@@ -17,8 +17,8 @@ task recursion {
         with open("OUT.json", "wt") as outf:
           json.dump(outf, outs['inception.out'])
   CODE
-    elif
-      echo "{0: 'did_not_execute'}" >> OUT.json
+    else
+      echo "{0: 'did_not_execute'}" > OUT.json
     fi
   >>>
   runtime {
