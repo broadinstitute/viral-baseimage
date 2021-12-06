@@ -3,7 +3,7 @@ version 1.0
 task recursion {
   input {
     Int    n
-    String self_uri=""
+    String self_uri="https://raw.githubusercontent.com/broadinstitute/viral-baseimage/dp-inception/dumbidea.wdl"
   }
   command <<<
     set -ex
