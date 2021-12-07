@@ -15,7 +15,7 @@ task recursion {
      outs = json.load(inf)
   outs['inception.out']["~{n}"] = "success"
   with open("OUT.json", "wt") as outf:
-     json.dump(outf, outs['inception.out'])
+     json.dump(outs['inception.out'], outf)
   CODE
     else
       echo '{"0": "did_not_execute"}' > OUT.json
