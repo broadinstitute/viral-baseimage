@@ -3,12 +3,12 @@
 # viral-baseimage
 
 This contains the code to build the Docker image for
-`quay.io/broadinstitute/viral-baseimage`. This image is based on ubuntu
+`quay.io/broadinstitute/viral-baseimage`. This image is based on Ubuntu
 and contains a number of generally useful utilities for Viral Genomics
 work on the cloud:
 
- - google-cloud-sdk, awscli, dx-toolkit: for interacting with
+ - google-cloud-cli, awscli, dx-toolkit: for interacting with
 Google Cloud, Amazon Web Services, and DNAnexus
  - a few compression utilities
  - Miniconda
- - udocker
+ - [udocker](https://github.com/indigo-dc/udocker)
