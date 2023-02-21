@@ -1,20 +1,20 @@
-FROM ubuntu:focal-20211006
+FROM ubuntu:jammy-20230126
 
-LABEL maintainer "Chris Tomkins-Tinch <tomkinsc@broadinstitute.org>"
+LABEL maintainer "viral-ngs team <viral-ngs@broadinstitute.org>"
 
 COPY install-*.sh /opt/docker/
 
-# System packages, Google Cloud SDK, and locale
+# System packages, Google Cloud CLI, and locale
 # ca-certificates and wget needed for gosu
 # bzip2, liblz4-toolk, and pigz are useful for packaging and archival
-# google-cloud-sdk needed when using this in GCE
+# google-cloud-cli needed when using this in GCE
 RUN /opt/docker/install-apt_packages.sh
 
 # Set default locale to en_US.UTF-8
-ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
+ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8" TZ="UTC"
 
 # install miniwdl
-RUN pip3 install --system miniwdl==1.4.1
+RUN pip3 install miniwdl==1.8.0
 ENV MINIWDL__SCHEDULER__CONTAINER_BACKEND=udocker
 
 # install udocker
