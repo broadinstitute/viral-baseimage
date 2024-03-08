@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20230126
+FROM ubuntu:jammy-20240227
 
 LABEL maintainer "viral-ngs team <viral-ngs@broadinstitute.org>"
 
@@ -22,6 +22,9 @@ RUN /opt/docker/install-udocker.sh
 
 # install DNAnexus SDK and UA
 RUN /opt/docker/install-dnanexus-cli.sh
+
+# install qsv (binary for manipulation and query of tabular data files like tsv)
+RUN /opt/docker/install-qsv.sh
 
 # install miniconda3 with our default channels and no other packages
 ENV MINICONDA_PATH="/opt/miniconda"
