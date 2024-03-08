@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20230126
+FROM ubuntu:jammy-20240227
 
 LABEL maintainer "viral-ngs team <viral-ngs@broadinstitute.org>"
 
