@@ -23,6 +23,9 @@ RUN /opt/docker/install-udocker.sh
 # install DNAnexus SDK and UA
 RUN /opt/docker/install-dnanexus-cli.sh
 
+# install qsv (binary for manipulation and query of tabular data files like tsv)
+RUN /opt/docker/install-qsv.sh
+
 # install miniconda3 with our default channels and no other packages
 ENV MINICONDA_PATH="/opt/miniconda"
 RUN /opt/docker/install-miniconda.sh
