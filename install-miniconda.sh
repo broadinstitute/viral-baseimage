@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e -o pipefail
 
-MINICONDA_VERSION="py312_24.1.2-0"
+MINICONDA_VERSION="py310_24.1.2-0"
 MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh"
 
 # download and run miniconda installer script
@@ -14,7 +14,7 @@ PATH="$MINICONDA_PATH/bin:$PATH"
 hash -r
 conda config --set always_yes yes --set changeps1 no
 conda config --add channels r
-conda config --add channels defaults
+#conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --add channels broad-viral
