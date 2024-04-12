@@ -4,7 +4,7 @@ LABEL maintainer "viral-ngs team <viral-ngs@broadinstitute.org>"
 
 COPY install-*.sh /opt/docker/
 
-# System packages, Google Cloud CLI, and locale
+# System packages and locale
 # ca-certificates and wget needed for gosu
 # bzip2, liblz4-toolk, and pigz are useful for packaging and archival
 # google-cloud-cli needed when using this in GCE
@@ -26,11 +26,15 @@ RUN /opt/docker/install-dnanexus-cli.sh
 # install qsv (binary for manipulation and query of tabular data files like tsv)
 RUN /opt/docker/install-qsv.sh
 
-# install miniconda3 with our default channels and no other packages
-ENV MINICONDA_PATH="/opt/miniconda"
-RUN /opt/docker/install-miniconda.sh
+ENV PATH /google-cloud-sdk/bin:$PATH
+ENV CLOUDSDK_PYTHON=python3
+RUN /opt/docker/install-google-cloud-sdk.sh
+
+# install micromamba with our default channels and no other packages
+ENV MICROMAMBA_PATH="/opt/micromamba"
+RUN /opt/docker/install-micromamba.sh
 
 # set up entrypoint
-ENV PATH="$MINICONDA_PATH/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ENV PATH="$MICROMAMBA_PATH/bin:/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 CMD ["/bin/bash"]
 
