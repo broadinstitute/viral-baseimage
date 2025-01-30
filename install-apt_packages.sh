@@ -11,7 +11,7 @@ echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 apt-get update
 apt-get install -y -qq --no-install-recommends apt-transport-https && apt-get update
 apt-get install -y -qq --no-install-recommends \
-	lsb-release ca-certificates gnupg wget rsync curl python-is-python3 python3-pip \
+	lsb-release ca-certificates gnupg wget rsync curl python-is-python3 python3-pip bsdmainutils \
 	python3-crcmod less nano vim git locales make bc \
 	dirmngr parallel file \
 	liblz4-tool pigz bzip2 lbzip2 zip unzip zstd xz-utils \

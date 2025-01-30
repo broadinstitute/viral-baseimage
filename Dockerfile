@@ -14,7 +14,7 @@ RUN /opt/docker/install-apt_packages.sh
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8" TZ="UTC"
 
 # install miniwdl
-RUN pip3 install miniwdl==1.8.0
+RUN pip3 install miniwdl==1.11.1
 ENV MINIWDL__SCHEDULER__CONTAINER_BACKEND=udocker
 
 # install udocker
