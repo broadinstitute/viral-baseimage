@@ -31,7 +31,7 @@ ENV CLOUDSDK_PYTHON=python3
 RUN /opt/docker/install-google-cloud-sdk.sh
 
 # install micromamba with our default channels and no other packages
-ENV MICROMAMBA_PATH="/opt/micromamba"
+ENV MICROMAMBA_CONTAINING_PATH="/opt"
 RUN /opt/docker/install-micromamba.sh
 
 # set up entrypoint
