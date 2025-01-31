@@ -11,7 +11,7 @@
 #   https://github.com/jqnatividad/qsv/releases
 
 QSV_BINARY=qsvpy310 # "qsv" is the binary with all features enabled (except python); "qsvlite" has extra features disabled and is much smaller in size
-QSV_VERSION=0.125.0
+QSV_VERSION=2.2.1
 
 case "$(uname -m)" in
   x86_64)
