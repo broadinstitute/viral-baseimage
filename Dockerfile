@@ -1,6 +1,6 @@
-FROM ubuntu:jammy-20240227
+FROM ubuntu:jammy-20250404
 
-LABEL maintainer "viral-ngs team <viral-ngs@broadinstitute.org>"
+LABEL maintainer="viral-ngs team <viral-ngs@broadinstitute.org>"
 
 COPY install-*.sh /opt/docker/
 
@@ -28,7 +28,7 @@ RUN /opt/docker/install-qsv.sh
 
 # install miniconda3 with our default channels and no other packages
 ENV MINICONDA_PATH="/opt/miniconda"
-RUN /opt/docker/install-miniconda.sh
+RUN /opt/docker/install-miniforge-conda.sh
 
 # set up entrypoint
 ENV PATH="$MINICONDA_PATH/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
