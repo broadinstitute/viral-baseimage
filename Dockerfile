@@ -12,10 +12,6 @@ COPY install-*.sh postinstall-*.sh requirements-*.txt ${BASEIMAGE_SETUP_SCRIPT_P
 # ca-certificates and wget needed for gosu
 # bzip2, liblz4-toolk, and pigz are useful for packaging and archival
 # google-cloud-cli needed when using this in GCE
-
-# to enable nala (performance-optimized interface to libapt)
-#   set:
-#     NALA_AS_INSTALLER=true NALA_BENCHMARK_MIRRORS=true
 RUN BENCHMARK_MIRRORS=true ${BASEIMAGE_SETUP_SCRIPT_PATH_IN_CONTAINER}/install-apt_packages.sh ${BASEIMAGE_SETUP_SCRIPT_PATH_IN_CONTAINER}/requirements-system-packages.txt && \
     ${BASEIMAGE_SETUP_SCRIPT_PATH_IN_CONTAINER}/install-apt_external_repo_keys.sh && \
     ${BASEIMAGE_SETUP_SCRIPT_PATH_IN_CONTAINER}/install-apt_packages.sh ${BASEIMAGE_SETUP_SCRIPT_PATH_IN_CONTAINER}/requirements-system-packages-from-nonstandard-sources.txt && \
