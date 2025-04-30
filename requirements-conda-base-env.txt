@@ -1,0 +1,2 @@
+#awscli
+miniwdl==1.11.1

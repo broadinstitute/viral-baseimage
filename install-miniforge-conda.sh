@@ -30,3 +30,19 @@ conda init
 conda activate
 
 mamba --version
+
+# check if an additional argument has been passed to this script, 
+# and if it is a file that exists and which `file --brief --mime-type $INFILE_REQUIREMENTS` returns 'text/plain'
+# use that file as input for `apt-get install --assume-yes --quiet=2 --no-install-recommends`
+if [ -n "$1" ] && [ -f "$1" ] && [ "$(file --brief --mime-type "$1")" == "text/plain" ]; then
+    REQUIREMENTS_FILE=$1
+    echo "Installing conda packages from $(realpath $REQUIREMENTS_FILE)"
+    mapfile -t pkgs < <(grep -E -v '^(#.*)?$' "$REQUIREMENTS_FILE")
+    if (( ${#pkgs[@]} )); then
+        mamba install --quiet --yes --file $REQUIREMENTS_FILE
+    fi
+else
+    echo "No valid input file provided, skipping package installation."
+fi
+
+mamba clean --yes --all
