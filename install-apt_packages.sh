@@ -30,10 +30,9 @@ APT_PKGMGR_OPTS=(
 install_apt_pkgs(){
 	pkgs=($@)
 
+	APT_PKGMGR_CMD="apt-get"
 	if command -v apt-fast &> /dev/null; then
 		APT_PKGMGR_CMD="apt-fast"
-	else
-	    APT_PKGMGR_CMD="apt-get"
 	fi
 
 	$APT_PKGMGR_CMD update
@@ -126,10 +125,10 @@ if [ "$BENCHMARK_MIRRORS" == "true" ]; then
 		#   https://github.com/vegardit/fast-apt-mirror.sh?tab=readme-ov-file#the-find-sub-command
 		if  /usr/local/bin/fast-apt-mirror.sh find --apply \
 												   --sample-size 1024 \
-												   --healthchecks 25 \
-												   --speedtests 8 \
-												   --parallel 2 \
-												   --sample-time 4; then
+												   --healthchecks 20 \
+												   --speedtests 6 \
+												   --parallel 1 \
+												   --sample-time 3; then
 			break
 		else
 			if [ $i -eq $RETRIES ]; then
@@ -156,7 +155,7 @@ if ! command -v apt-fast &> /dev/null; then
 
 	install_apt_pkgs apt-fast
 
-	echo debconf apt-fast/maxdownloads string 16      | debconf-set-selections
+	echo debconf apt-fast/maxdownloads string 20      | debconf-set-selections
 	echo debconf apt-fast/dlflag       boolean true   | debconf-set-selections
 	echo debconf apt-fast/aptmanager   string apt-get | debconf-set-selections
 fi
