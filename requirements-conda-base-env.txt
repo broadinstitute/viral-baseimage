@@ -1,0 +1,5 @@
+#awscli
+#dxpy
+cryptography
+google-crc32c>=1.7.1
+miniwdl==1.12.0

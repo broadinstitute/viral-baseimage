@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This installs qsv:
 #   "a command line program for querying, indexing, slicing, analyzing, filtering, enriching,
@@ -11,7 +11,8 @@
 #   https://github.com/jqnatividad/qsv/releases
 
 QSV_BINARY=qsvpy310 # "qsv" is the binary with all features enabled (except python); "qsvlite" has extra features disabled and is much smaller in size
-QSV_VERSION=0.125.0
+#QSV_VERSION=0.125.0
+QSV_VERSION=4.0.0
 
 case "$(uname -m)" in
   x86_64)

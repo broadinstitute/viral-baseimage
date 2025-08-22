@@ -1,0 +1,2 @@
+gnupg
+software-properties-common
