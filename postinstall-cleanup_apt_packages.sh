@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 APT_PKGMGR_OPTS=(
     "--assume-yes"
@@ -33,10 +33,19 @@ $APT_PKGMGR_CMD clean
 # if the 'apt-fast' package manager wrapper is available, remove it to reduce the size of the docker image
 # (apt-fast is a performance-optimized wrapper around apt)
 if ! command -v apt-fast &> /dev/null; then
-    apt-get remove --assume-yes --quiet=2 apt-fast
-    # one final cleanup
-    apt-get autoremove --assume-yes --quiet=2 && \
-        apt-get clean --quiet=2
+    # if env var REMOVE_APT_FAST_AFTER_BUILD==true
+    # remove the apt-fast package manager wrapper
+    if [[ "$REMOVE_APT_FAST_AFTER_BUILD" == "true" ]]; then
+        apt-get remove --assume-yes --quiet=2 apt-fast
+        # one final cleanup
+        apt-get autoremove --assume-yes --quiet=2 && \
+            apt-get autoclean --quiet=2 && \
+            apt-get clean --quiet=2
+    else
+        echo "apt-fast package manager removal not requested, skipping removal; set REMOVE_APT_FAST_AFTER_BUILD=true during (Docker) build to remove"
+    fi
+else
+        echo "apt-fast package manager wrapper not found, skipping removal"
 fi
 
-locale-gen en_US.UTF-8
+#locale-gen en_US.UTF-8

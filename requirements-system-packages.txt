@@ -3,6 +3,7 @@ bsdmainutils
 bzip2
 ca-certificates
 curl
+# dirmngr is possibly not needed
 dirmngr
 file
 fonts-dejavu
@@ -21,7 +22,7 @@ pigz
 #python3-pip
 rsync
 unzip
-vim
+#vim
 wget
 xz-utils
 zip

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e -o pipefail
 
@@ -109,7 +109,7 @@ install_apt_pkgs ${PKGS_USED_DURING_APT_INSTALLATION[*]}
 #   https://github.com/vegardit/fast-apt-mirror.sh
 
 # if /usr/local/bin/fast-apt-mirror.sh does not exist, assume we need to install it and determine the fastest mirror
-if [ "$BENCHMARK_MIRRORS" == "true" ]; then
+if [ "$BENCHMARK_APT_MIRRORS" == "true" ]; then
 	if [ ! -f /usr/local/bin/fast-apt-mirror.sh ]; then
 		# if the script is already present, skip this step
 		curl -fsSL https://raw.githubusercontent.com/vegardit/fast-apt-mirror.sh/1.4.0/fast-apt-mirror.sh -o /usr/local/bin/fast-apt-mirror.sh && \
@@ -176,6 +176,8 @@ if [ "$#" -gt 0 ]; then
 			REQUIREMENTS_FILE=$FILE
 			echo "Installing apt packages from $(realpath $REQUIREMENTS_FILE):"
 
+			# map lines of the requirements file to a bash array
+			# skip empty lines and comments by pre-processing via grep regex
 			mapfile -t pkgs < <(grep -E -v '^(#.*)?$' "$REQUIREMENTS_FILE")
 
 			# install the packages specified in the requirements file (excluding any identified as already being present)
